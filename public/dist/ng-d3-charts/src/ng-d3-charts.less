@@ -1,0 +1,20 @@
+@marina: #2980B9;
+
+ng-bar-chart{
+	font-size: 0.8em;
+	& .axis {
+		& path,line {
+			fill: none;
+			stroke: black;
+			shape-rendering: crispEdges;
+		}
+	}
+	& .line-chart{
+		& .line {
+			fill: none;
+			stroke: @marina;
+			stroke-width: 2.5px;
+		}
+	}
+}
+

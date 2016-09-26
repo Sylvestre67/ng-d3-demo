@@ -1,0 +1,47 @@
+@import 'custom_variables';
+
+@marina:rgb(63,81,181);
+@gray: #eeeeee;
+
+body{
+	background-color:white;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.bg-youtube{
+	background-color:@ytred !important;
+}
+
+.bg-marina{
+	background-color:@marina !important;
+}
+
+.bg-adw-green{
+	background-color:@adw_green !important;
+}
+
+md-dialog{
+	min-width:50%;
+}
+
+/*===================================================================================*/
+/* ANGULAR ANIMATION
+/*===================================================================================*/
+.fade{
+	opacity:1;
+	&.ng-hide-add, &.ng-hide-remove{
+		//.transition(@property: all, @duration: 500ms, @effect:ease)
+	}
+	&.ng-hide {
+		opacity:0;
+	}
+	&.ng-show-add, &.ng-show-remove{
+		//.transition(@property: all, @duration: 500ms, @effect:ease)
+	}
+	&.ng-show {
+		opacity:1;
+	}
+}
