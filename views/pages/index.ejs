@@ -7,6 +7,7 @@
 
 <body>
     <div ng-controller="index" layout="column" ng-cloak>
+
         <md-toolbar>
             <div class="md-toolbar-tools" md-whiteframe="2">
               <span>ng-D3-Charts</span>
@@ -16,8 +17,9 @@
               </md-button>
             </div>
         </md-toolbar>
-        <md-content layout="column" layout-gt-sm="row" layout-margin>
-             <div flex class="chart-wrapper">
+
+        <div layout="column" layout-gt-sm="row" layout-margin>
+             <div flex>
                  <md-toolbar>
                     <div class="md-toolbar-tools" md-whiteframe="2">
                       <span>Vertical Bar Chart</span>
@@ -27,14 +29,47 @@
                       </md-button>
                     </div>
                 </md-toolbar>
-                <md-content>
-                     <p>chart</p>
-                </md-content>
+                <div class="chart-wrapper">
+                    <ng-bar-chart dataset="fakeDataset" config="verticalBarChartConfig"></ng-bar-chart>
+                </div>
             </div>
              <div flex class="chart-wrapper">
                  <md-toolbar>
                     <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
+                      <span>Horizontal Bar Chart</span>
+                      <span flex></span>
+                      <md-button>
+
+                      </md-button>
+                    </div>
+                </md-toolbar>
+                 <div class="chart-wrapper">
+                    <ng-bar-chart dataset="fakeDatasetHBar" config="horizontalBarChartConfig"></ng-bar-chart>
+                 </div>
+            </div>
+        </div>
+
+
+
+       <div layout="column" layout-gt-sm="row" layout-margin>
+             <div flex>
+                 <md-toolbar>
+                    <div class="md-toolbar-tools" md-whiteframe="2">
+                      <span>Line Chart</span>
+                      <span flex></span>
+                      <md-button>
+
+                      </md-button>
+                    </div>
+                </md-toolbar>
+                 <div class="chart-wrapper">
+                     <ng-bar-chart dataset="fakeDataset" config="lineChartConfig"></ng-bar-chart>
+                </div>
+            </div>
+             <div flex class="chart-wrapper">
+                 <md-toolbar>
+                    <div class="md-toolbar-tools" md-whiteframe="2">
+                      <span></span>
                       <span flex></span>
                       <md-button>
 
@@ -42,100 +77,12 @@
                     </div>
                 </md-toolbar>
                 <md-content>
-                     <p>chart</p>
-                </md-content>
-            </div>
-        </md-content>
-        <md-content layout="column" layout-gt-sm="row" layout-margin>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
-                      <span flex></span>
-                      <md-button>
 
-                      </md-button>
-                    </div>
-                </md-toolbar>
-                <md-content>
-                     <p>chart</p>
                 </md-content>
             </div>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
-                      <span flex></span>
-                      <md-button>
+        </div>
 
-                      </md-button>
-                    </div>
-                </md-toolbar>
-                <md-content>
-                     <p>chart</p>
-                </md-content>
-            </div>
-        </md-content>
-        <md-content layout="column" layout-gt-sm="row"layout-margin>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
-                      <span flex></span>
-                      <md-button>
 
-                      </md-button>
-                    </div>
-                </md-toolbar>
-                <md-content>
-                     <p>chart</p>
-                </md-content>
-            </div>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
-                      <span flex></span>
-                      <md-button>
-
-                      </md-button>
-                    </div>
-                </md-toolbar>
-                <md-content>
-                     <p>chart</p>
-                </md-content>
-            </div>
-        </md-content>
-        <md-content layout="column" layout-gt-sm="row" layout-margin>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
-                      <span flex></span>
-                      <md-button>
-
-                      </md-button>
-                    </div>
-                </md-toolbar>
-                <md-content>
-                     <p>chart</p>
-                </md-content>
-            </div>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
-                      <span flex></span>
-                      <md-button>
-
-                      </md-button>
-                    </div>
-                </md-toolbar>
-                <md-content>
-                     <p>chart</p>
-                </md-content>
-            </div>
-        </md-content>
     </div>
 
     <script src="http://localhost:35729/livereload.js"></script>
