@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="ngD3ChartsDemo">
+<head>
+    <% include ../partials/header.ejs %>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <% include ../partials/js_lib.ejs %>
+
+</head>
+
+<body>
+    <div ng-controller="d4-training" layout="column" ng-cloak>
+
+        <md-toolbar>
+            <div class="md-toolbar-tools" md-whiteframe="2">
+              <span>D3 V4.0</span>
+              <span flex></span>
+              <md-button class="md-icon-button" aria-label="Settings">
+
+              </md-button>
+            </div>
+        </md-toolbar>
+
+        <div layout="column" layout-gt-sm="row" layout-margin>
+             <div flex>
+                 <md-toolbar class="md-accent">
+                    <div class="md-toolbar-tools" md-whiteframe="2">
+                      <span>Histogram</span>
+                      <span flex></span>
+                      <md-button aria-label="More">
+
+                      </md-button>
+                    </div>
+                </md-toolbar>
+                <div class="chart-wrapper">
+                    <histogram data="fakeDataset"></histogram>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
