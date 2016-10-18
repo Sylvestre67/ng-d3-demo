@@ -81,6 +81,22 @@ md-toolbar {
 	}
 }
 
+/*===================================================================================*/
+/* CHARTS SPECIFIC
+/*===================================================================================*/
+.axis{
+	& path{
+		stroke:@concrete !important;
+	}
+	& .tick{
+		& text{
+			fill:@asbestos !important;
+		}
+	 	& line{
+			stroke:@concrete !important;
+	 }
+	}
+}
 
 /*===================================================================================*/
 /* ANGULAR ANIMATION
@@ -88,13 +104,13 @@ md-toolbar {
 .fade{
 	opacity:1;
 	&.ng-hide-add, &.ng-hide-remove{
-		//.transition(@property: all, @duration: 500ms, @effect:ease)
+		.transition(@property: all, @duration: 500ms, @effect:ease)
 	}
 	&.ng-hide {
 		opacity:0;
 	}
 	&.ng-show-add, &.ng-show-remove{
-		//.transition(@property: all, @duration: 500ms, @effect:ease)
+		.transition(@property: all, @duration: 500ms, @effect:ease)
 	}
 	&.ng-show {
 		opacity:1;
