@@ -1,5 +1,4 @@
-# 
-ng-d3-charts demo app.
+See [here](https://ng-d3-chart.herokuapp.com/#/)
 
 
 Enjoy !
