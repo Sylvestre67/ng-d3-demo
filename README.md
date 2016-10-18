@@ -1,18 +1,5 @@
 # 
-An angular directive for the You Tube Video Player.
+ng-d3-charts demo app.
 
-## Running Locally
-```sh
-npm start
-```
-
-## Running Tests Locally
-
-```sh
-webdriver-manager start
-protractor tests/e2e/conf.js
-
-npm test
-```
 
 Enjoy !
