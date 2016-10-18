@@ -8,25 +8,50 @@
 <body>
     <div ng-controller="index" layout="column" ng-cloak>
 
-        <md-toolbar>
-            <div class="md-toolbar-tools" md-whiteframe="2">
-              <span>ng-D3-Charts</span>
-              <span flex></span>
-              <md-button class="md-icon-button" aria-label="Settings">
-                   <a href="/d_next_version/"><md-icon md-svg-src="/img/chart.svg"></md-icon></a>
-              </md-button>
-            </div>
-        </md-toolbar>
+        <section layout="row" flex>
+             <md-sidenav
+                class="md-sidenav-left"
+                md-component-id="sideNavigationMenu"
+                md-whiteframe="2"
+                md-is-locked-open="$mdMedia('gt-md')">
 
-        <div layout="column" layout-gt-sm="row" layout-margin>
+                <md-toolbar layout="row" class="md-theme-indigo"  md-whiteframe="2">
+                     <div class="md-toolbar-tools">
+                        <h1 flex class="md-toolbar-tools">ng-d3-charts</h1>
+                     </div>
+                </md-toolbar>
+
+                <md-content layout-padding>
+                    <ul>
+                        <li>C</li>
+                        <li>H</li>
+                        <li>R</li>
+                        <li>T</li>
+                        <li>S</li>
+                    </ul>
+                </md-content>
+            </md-sidenav>
+
+            <md-content flex>
+                <md-toolbar md-whiteframe="2" hide-gt-md>
+                    <div class="md-toolbar-tools">
+                        <md-button hide-gt-md id="toggle-sidenav" class="md-icon-button" aria-label="Settings" ng-click="toggleSideNavMenu()" side-nav-toggle>
+					        <md-icon  md-svg-src="/img/icons/menu.svg"></md-icon>
+					    </md-button>
+                        <span >ng-d3-charts</span>
+                        <span flex></span>
+                        <!--<md-button class="md-icon-button" aria-label="Settings">
+                                <a href="/d_next_version/"><md-icon md-svg-src="/img/chart.svg"></md-icon></a>
+                           </md-button>-->
+                    </div>
+                </md-toolbar>
+
+                 <div flex layout="column" layout-gt-sm="row" layout-margin>
              <div flex>
                  <md-toolbar>
                     <div class="md-toolbar-tools" md-whiteframe="2">
                       <span>Vertical Bar Chart</span>
                       <span flex></span>
-                      <md-button>
-
-                      </md-button>
                     </div>
                 </md-toolbar>
                 <div class="chart-wrapper">
@@ -38,9 +63,6 @@
                     <div class="md-toolbar-tools" md-whiteframe="2">
                       <span>Horizontal Bar Chart</span>
                       <span flex></span>
-                      <md-button>
-
-                      </md-button>
                     </div>
                 </md-toolbar>
                  <div class="chart-wrapper">
@@ -49,15 +71,12 @@
             </div>
         </div>
 
-       <div layout="column" layout-gt-sm="row" layout-margin>
+                 <div layout="column" layout-gt-sm="row" layout-margin>
              <div flex>
                  <md-toolbar>
                     <div class="md-toolbar-tools" md-whiteframe="2">
                       <span>Line Chart</span>
                       <span flex></span>
-                      <md-button>
-
-                      </md-button>
                     </div>
                 </md-toolbar>
                  <div class="chart-wrapper">
@@ -69,9 +88,6 @@
                     <div class="md-toolbar-tools" md-whiteframe="2">
                       <span></span>
                       <span flex></span>
-                      <md-button>
-
-                      </md-button>
                     </div>
                 </md-toolbar>
                 <md-content>
@@ -79,6 +95,18 @@
                 </md-content>
             </div>
         </div>
+
+            </md-content>
+
+
+        </section>
+
+
+
+
+
+
+
 
 
     </div>

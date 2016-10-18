@@ -38,7 +38,8 @@ ngD3DemoControllers.controller('index',['$scope','$q','chartConfig',function($sc
 			}, 1500);
 		}
 
-		timeout();
+		//timeout();
+		$scope.getFakeData();
 
 		$scope.lineChartConfig = new chartConfig({
 			chartType:'lineChart',
@@ -79,7 +80,7 @@ ngD3DemoControllers.controller('index',['$scope','$q','chartConfig',function($sc
 
 }]);
 
-ngD3DemoControllers.controller('d4-training',['$scope','$q','chartConfig',function($scope,$q,chartConfig){
+ngD3DemoControllers.controller('d4-training',['$scope','$q','$timeout','chartConfig',function($scope,$q,$timeout,chartConfig){
 
 		$scope.getFakeData = function(){
 			var setData = $q.defer();
@@ -102,22 +103,21 @@ ngD3DemoControllers.controller('d4-training',['$scope','$q','chartConfig',functi
 			}
 
 			var list_hbar = [];
-			var star_wars_characters = ['Han Solo','Princess Leia','Chewbacca','Yoda','C-3PO','Darth Maul','Luke Skywalker','Obi-Wan Kenobi','R2-D2','Count Doku'];
+			var star_wars_characters = ['Han Solo','Princess Leia','Chewbacca','Yoda',
+				'C-3PO','Darth Maul','Luke Skywalker','Obi-Wan Kenobi','R2-D2','Count Doku'];
 
 			for (var i_h = 0; i_h < i_max ; i_h++) {
 				 list_hbar.push({x: Math.random() * Math.ceil(Math.random()*10000),y:star_wars_characters[i_h]});
 				(i_h === i_max - 1) ? (setDataHbar.resolve(list_hbar)) : false;
 			}
 
-
-
 		};
 
 		function timeout() {
 			setTimeout(function () {
 				$scope.getFakeData();
-				timeout();
-			}, 1500);
+				//timeout();
+			}, 500);
 		}
 
 		//timeout();
