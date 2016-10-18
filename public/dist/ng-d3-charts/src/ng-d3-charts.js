@@ -46,7 +46,7 @@
 
 	}]);
 
-	mod.factory('chartConfig',function(){
+	mod.factory('chartConfig',[function(){
 
 		var chartConfig = function(config){
 
@@ -109,7 +109,7 @@
 
 		return chartConfig;
 
-	});
+	}]);
 
 	mod.directive('ngBarChart', ['d3Loader','$timeout', function(d3Loader,$timeout) {
 
@@ -601,7 +601,8 @@
 			},
 			link: function(scope,element,attrs){
 				var d3isReady = d3Loader.d3();
-				scope.$watch('dataset',function(newData,oldData){
+				$timeout(function(){
+					scope.$watch('dataset',function(newData,oldData){
 					(newData)
 						? (d3isReady.then(function(){ $timeout(function(){
 							var chartToDraw = eval(scope.config.chartType);
@@ -610,7 +611,9 @@
 								: console.error('Invalid chart name. Please adjust your chartType parameter.');
 						});}))
 						: false;
-				});
+					});
+				})
+
 			}
 		};
 	}]);

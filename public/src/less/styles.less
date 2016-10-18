@@ -11,6 +11,17 @@ body{
   display: none !important;
 }
 
+[ui-sref]{
+	cursor:pointer;
+}
+
+.transition(@property,@duration,@effect){
+	-webkit-transition: @property,@duration,@effect;
+  	   -moz-transition: @property,@duration,@effect;
+	     -o-transition: @property,@duration,@effect;
+		    transition: @property,@duration,@effect;
+}
+
 .bg-youtube{
 	background-color:@ytred !important;
 }
@@ -34,8 +45,38 @@ md-toolbar {
 		& .md-icon-button {
 			& svg{
 				fill: rgb(255,255,255) !important;
-
 			}
+		}
+	}
+}
+
+.side-nav-menu{
+	margin:25% 0;
+	padding:0;
+	width:100%;
+	& li{
+		&.active{
+			& div:first-child{
+				background-color:@river !important;
+				color:@white;
+			}
+		}
+		&:hover{
+			& div:first-child{
+				background-color:@river !important;
+				color:@white;
+			}
+		}
+		margin:0 0 .5em 0;
+		background-color:@offgray;
+		& div:first-child{
+			text-align: center;
+			background-color:@silver;
+			font-size:1.7em;
+			width:2em;
+		}
+		& div{
+			padding:.2em;
 		}
 	}
 }

@@ -6,112 +6,67 @@
 </head>
 
 <body>
-    <div ng-controller="index" layout="column" ng-cloak>
-
+    <div layout="column" layout-fill ng-cloak>
         <section layout="row" flex>
-             <md-sidenav
+            <md-sidenav
                 class="md-sidenav-left"
                 md-component-id="sideNavigationMenu"
                 md-whiteframe="2"
                 md-is-locked-open="$mdMedia('gt-md')">
 
-                <md-toolbar layout="row" class="md-theme-indigo"  md-whiteframe="2">
+                <md-toolbar layout="row" class="md-theme-indigo" md-whiteframe="2" ui-sref="home">
                      <div class="md-toolbar-tools">
                         <h1 flex class="md-toolbar-tools">ng-d3-charts</h1>
                      </div>
                 </md-toolbar>
 
-                <md-content layout-padding>
-                    <ul>
-                        <li>C</li>
-                        <li>H</li>
-                        <li>R</li>
-                        <li>T</li>
-                        <li>S</li>
+                <md-content>
+                    <ul class="side-nav-menu">
+                        <li layout="row" layout-align="start center" ui-sref="categorical" ui-sref-active="active">
+                            <div flex="10">C</div>
+                            <div flex>ategorical</div>
+                        </li>
+                         <li layout="row" layout-align="start center" ui-sref="hierarchical" ui-sref-active="active">
+                            <div flex="10">H</div>
+                            <div flex>ierarchical</div>
+                        </li>
+                         <li layout="row" layout-align="start center" ui-sref="relational" ui-sref-active="active">
+                            <div flex="10">R</div>
+                            <div flex>elational</div>
+                        </li>
+                         <li layout="row" layout-align="start center" ui-sref="temporal" ui-sref-active="active">
+                            <div flex="10">T</div>
+                            <div flex>emporal</div>
+                        </li>
+                         <li layout="row" layout-align="start center" ui-sref="spatial" ui-sref-active="active">
+                            <div flex="10">S</div>
+                            <div flex>patial</div>
+                        </li>
                     </ul>
                 </md-content>
+
             </md-sidenav>
 
             <md-content flex>
                 <md-toolbar md-whiteframe="2" hide-gt-md>
+
                     <div class="md-toolbar-tools">
                         <md-button hide-gt-md id="toggle-sidenav" class="md-icon-button" aria-label="Settings" ng-click="toggleSideNavMenu()" side-nav-toggle>
-					        <md-icon  md-svg-src="/img/icons/menu.svg"></md-icon>
-					    </md-button>
+                            <md-icon  md-svg-src="/img/icons/menu.svg"></md-icon>
+                        </md-button>
                         <span >ng-d3-charts</span>
                         <span flex></span>
                         <!--<md-button class="md-icon-button" aria-label="Settings">
-                                <a href="/d_next_version/"><md-icon md-svg-src="/img/chart.svg"></md-icon></a>
-                           </md-button>-->
+                                   <a href="/d_next_version/"><md-icon md-svg-src="/img/chart.svg"></md-icon></a>
+                              </md-button>-->
                     </div>
                 </md-toolbar>
 
-                 <div flex layout="column" layout-gt-sm="row" layout-margin>
-             <div flex>
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Vertical Bar Chart</span>
-                      <span flex></span>
-                    </div>
-                </md-toolbar>
-                <div class="chart-wrapper">
-                    <ng-bar-chart dataset="fakeDataset" config="verticalBarChartConfig"></ng-bar-chart>
-                </div>
-            </div>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Horizontal Bar Chart</span>
-                      <span flex></span>
-                    </div>
-                </md-toolbar>
-                 <div class="chart-wrapper">
-                    <ng-bar-chart dataset="fakeDatasetHBar" config="horizontalBarChartConfig"></ng-bar-chart>
-                 </div>
-            </div>
-        </div>
-
-                 <div layout="column" layout-gt-sm="row" layout-margin>
-             <div flex>
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span>Line Chart</span>
-                      <span flex></span>
-                    </div>
-                </md-toolbar>
-                 <div class="chart-wrapper">
-                     <ng-bar-chart dataset="fakeDataset" config="lineChartConfig"></ng-bar-chart>
-                </div>
-            </div>
-             <div flex class="chart-wrapper">
-                 <md-toolbar>
-                    <div class="md-toolbar-tools" md-whiteframe="2">
-                      <span></span>
-                      <span flex></span>
-                    </div>
-                </md-toolbar>
-                <md-content>
-
-                </md-content>
-            </div>
-        </div>
+                <div ui-view flex></div>
 
             </md-content>
-
-
         </section>
-
-
-
-
-
-
-
-
-
     </div>
-
     <script src="http://localhost:35729/livereload.js"></script>
-
 </body>
 </html>
