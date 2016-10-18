@@ -98,6 +98,32 @@ md-toolbar {
 	}
 }
 
+.starwars-barchart{
+	& .axis{
+		&.y{
+			& path{
+				display:none !important;
+			}
+			& .tick{
+				& line{
+					stroke:@clouds !important;
+				}
+			}
+		}
+		&.x{
+			& path{
+				stroke:@clouds !important;
+			}
+			& .tick{
+				& line{
+					//display:none;
+				}
+			}
+		}
+
+	}
+}
+
 /*===================================================================================*/
 /* ANGULAR ANIMATION
 /*===================================================================================*/

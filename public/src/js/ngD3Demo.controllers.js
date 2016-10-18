@@ -47,6 +47,7 @@ ngD3DemoControllers.controller('homeCtrl',['$scope','$q','chartConfig',function(
 		};
 
 		function timeout() {
+			$scope.getFakeData();
 			setTimeout(function () {
 				$scope.getFakeData();
 				timeout();
@@ -114,6 +115,10 @@ ngD3DemoControllers.controller('homeCtrl',['$scope','$q','chartConfig',function(
 ngD3DemoControllers.controller('categoricalCtrl',['$scope','$q','$timeout','chartConfig',function($scope,$q,$timeout,chartConfig){
 
 	$scope.getFakeData = function(){
+
+		var star_wars_characters = ['Han Solo','Princess Leia','Chewbacca','Yoda',
+			'C-3PO','Darth Maul','Luke Skywalker','Obi-Wan Kenobi','R2-D2','Count Doku'];
+
 		var setData = $q.defer();
 		var setDataHbar = $q.defer();
 
@@ -126,15 +131,14 @@ ngD3DemoControllers.controller('categoricalCtrl',['$scope','$q','$timeout','char
 		});
 
 		var quant_quali_list = [];
-		var i_max = Math.floor(Math.random()*10);
+		var i_max = Math.floor(Math.random()* (7 - 3) + 3);
 		for (var i = 0; i < i_max ; i++) {
-			quant_quali_list.push({x:i,y: Math.random() * Math.ceil(Math.random()*10000)});
+			quant_quali_list.push({x:star_wars_characters[i],y: Math.random() * Math.ceil(Math.random()*10000)});
 			(i === i_max - 1) ? (setData.resolve(quant_quali_list)) : false;
 		}
 
 		var list_hbar = [];
-		var star_wars_characters = ['Han Solo','Princess Leia','Chewbacca','Yoda',
-			'C-3PO','Darth Maul','Luke Skywalker','Obi-Wan Kenobi','R2-D2','Count Doku'];
+
 
 		for (var i_h = 0; i_h < i_max ; i_h++) {
 			list_hbar.push({x: Math.random() * Math.ceil(Math.random()*10000),y:star_wars_characters[i_h]});
@@ -143,17 +147,19 @@ ngD3DemoControllers.controller('categoricalCtrl',['$scope','$q','$timeout','char
 	};
 
 	function timeout() {
+		$scope.getFakeData();
 		setTimeout(function () {
 			$scope.getFakeData();
-			//timeout();
-		}, 500);
+			timeout();
+		}, 1500);
 	}
 
-	//timeout();
-	$scope.getFakeData();
+	timeout();
 
 	$scope.BarChartConfig = new chartConfig({
 			chartType:'barChartVertical',
+			barColor:'d3.scale.category20()',
+			margin:{top: 30, right: 30, bottom: 20, left: 30},
 			xAxis: {
 				showAxis: true,
 				barPadding:.3,
@@ -162,6 +168,8 @@ ngD3DemoControllers.controller('categoricalCtrl',['$scope','$q','$timeout','char
 			},
 			yAxis: {
 				showAxis: true,
+				innerTickSize:'full_width',
+				ticks:5,
 			}
 		});
 

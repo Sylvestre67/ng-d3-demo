@@ -123,12 +123,16 @@
 
 			var margin = config.margin,
 				full_width = attrs.$$element[0].parentNode.clientWidth,
-				full_height= attrs.$$element[0].parentNode.offsetHeight,
+				full_height= (attrs.$$element[0].parentNode.offsetHeight) * .95,
 				width = full_width - margin.left - margin.right,
 				height = full_height - margin.top - margin.bottom,
 				barColor = config.barColor,
 				backgroundColor = config.bakcgroundColor,
 				colorScale;
+
+			//Support for full width ticks, grid on the whole width of chart.
+			var xAxis_innerTickSize = (config.xAxis.innerTickSize === 'full_width') ? (- width) : config.xAxis.innerTickSize;
+			var yAxis_innerTickSize = (config.yAxis.innerTickSize === 'full_width') ? (- width) : config.yAxis.innerTickSize;
 
 			//If color_scale is provided
 			(config.barColor.indexOf('d3.scale') > -1)
@@ -147,7 +151,7 @@
 				.ticks(eval(config.xAxis.ticks))
 				.tickSize(config.xAxis.tickSize)
 				.outerTickSize(config.xAxis.outerTickSize)
-				.innerTickSize(config.xAxis.innerTickSize)
+				.innerTickSize(xAxis_innerTickSize)
 				.tickPadding(config.xAxis.tickPadding)
 				.tickFormat((config.xAxis.tickFormat) ? eval(config.xAxis.tickFormat) : null)
 				.tickValues(eval(config.xAxis.tickValues));
@@ -158,7 +162,7 @@
 				.ticks(eval(config.yAxis.ticks))
 				.tickSize(config.yAxis.tickSize)
 				.outerTickSize(config.yAxis.outerTickSize)
-				.innerTickSize(config.yAxis.innerTickSize)
+				.innerTickSize(yAxis_innerTickSize)
 				.tickPadding(config.yAxis.tickPadding)
 				.tickFormat((config.yAxis.tickFormat) ? eval(config.yAxis.tickFormat) : null)
 				.tickValues(eval(config.yAxis.tickValues));
@@ -167,6 +171,7 @@
 			var x_domain = [];
 			angular.forEach(data,function(d,i){	x_domain.push(d.x); });
 			x.domain(x_domain);
+
 
 			//Set up y_axis
 			var max_y = d3.max(data,function(d){ return d.y; });
@@ -193,6 +198,13 @@
 					initial = true
 				)
 				: svg = d3.select(element[0]).select('svg g');
+
+			(initial) ? (
+				y_axis_node = svg.append('g')
+					.attr('class','axis y')
+					.attr('transform', 'translate(' + 0 + ',' + 0 + ')'),
+					initial=false)
+				: false;
 
 			var bar_nodes = svg.selectAll(".bar")
 				.data(data);
@@ -223,19 +235,12 @@
 				.attr("y",height)
 				.attr("x",0)
 				.attr("width",width)
-				.attr("height",margin.bottom)
+				.attr("height",margin.bottom )
 				.style("fill", backgroundColor);
 
 			x_axis_node = svg.append('g')
 				.attr('class','axis x')
 				.attr('transform', 'translate(' + 0 + ',' + height + ')');
-
-			(initial) ? (
-				y_axis_node = svg.append('g')
-					.attr('class','axis y')
-					.attr('transform', 'translate(' + 0 + ',' + 0 + ')'),
-					initial=false)
-				: false;
 
 			(config.xAxis.showAxis) ? svg.select('.x.axis').transition().duration(300).call(x_axis) : false;
 			(config.yAxis.showAxis) ? svg.select('.y.axis').transition().duration(300).call(y_axis) : false;
